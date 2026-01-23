@@ -17,7 +17,11 @@ export const getsubject = async (id:number) =>{
 }
 export const addsubject = async (subject:Subject)=>{
     return await prisma.subject.create({
-        data:subject,
+        data:{
+            subjectname:subject.subjectname,
+            grade:subject.grade,
+            groupid:subject.groupid,
+        },
     });
 }
 
@@ -43,3 +47,4 @@ export const deletesubject = async (id:number) =>{
         },
     });
 }
+

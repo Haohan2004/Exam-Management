@@ -1,6 +1,14 @@
 import express from "express";
-import {getsubjectbyid, getsubjects} from "../Controller/SubjectController.js";
+import {
+    createsubjectController,
+    deletesubjectController,
+    getsubjectbyid,
+    getsubjects, updatesubjectwithid
+} from "../Controller/SubjectController.js";
 const Router = express.Router();
-Router.get("/", getsubjects)
-Router.get("/:id",getsubjectbyid)
-Router.post("/",c)
+Router.get("/", getsubjects).post("/", createsubjectController);
+
+Router.get("/:id",getsubjectbyid).delete("/:id",deletesubjectController).put("/:id",updatesubjectwithid);
+
+
+export default Router;

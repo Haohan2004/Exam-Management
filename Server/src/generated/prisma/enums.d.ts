@@ -1,7 +1,2 @@
-export declare const Level: {
-    readonly Easy: "Easy";
-    readonly Medium: "Medium";
-    readonly Hard: "Hard";
-};
-export type Level = (typeof Level)[keyof typeof Level];
+export {};
 //# sourceMappingURL=enums.d.ts.map

@@ -1,5 +1,5 @@
 import {createGroup, delgroup, getgroup, getgroupwithid} from "../Service/GroupService.js";
-import type {Group} from "@prisma/client";
+import type {Group} from "@prisma/client"
 import {prisma} from "../lib/prisma.js";
 import {updategroup} from "../Model/Group.js";
 export const getallgroups = async (req:any,res:any) => {
