@@ -1,13 +1,12 @@
 import express from 'express';
-// @ts-ignore
-import subjectRouter from "./Route/Subject.ts";
+import groupRouter from "./src/Route/Group.js"
 const app = express();
 
 app.use(express.json());
-
+app.use(express.urlencoded({extended: true}));
 
 app.get("/",(req,res)=>{
     res.json("hello world");
 })
-app.use("/subject",subjectRouter)
+app.use("/group",groupRouter)
 app.listen(8080,()=>{console.log('Server is running on port 8080000000000')});

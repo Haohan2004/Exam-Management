@@ -1,0 +1,1296 @@
+import type * as runtime from "@prisma/client/runtime/library";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model Attempt_Answer
+ *
+ */
+export type Attempt_AnswerModel = runtime.Types.Result.DefaultSelection<Prisma.$Attempt_AnswerPayload>;
+export type AggregateAttempt_Answer = {
+    _count: Attempt_AnswerCountAggregateOutputType | null;
+    _avg: Attempt_AnswerAvgAggregateOutputType | null;
+    _sum: Attempt_AnswerSumAggregateOutputType | null;
+    _min: Attempt_AnswerMinAggregateOutputType | null;
+    _max: Attempt_AnswerMaxAggregateOutputType | null;
+};
+export type Attempt_AnswerAvgAggregateOutputType = {
+    attemptansid: number | null;
+    attemptid: number | null;
+    quesid: number | null;
+    ansid: number | null;
+};
+export type Attempt_AnswerSumAggregateOutputType = {
+    attemptansid: number | null;
+    attemptid: number | null;
+    quesid: number | null;
+    ansid: number | null;
+};
+export type Attempt_AnswerMinAggregateOutputType = {
+    attemptansid: number | null;
+    attemptid: number | null;
+    quesid: number | null;
+    ansid: number | null;
+    is_delete: boolean | null;
+};
+export type Attempt_AnswerMaxAggregateOutputType = {
+    attemptansid: number | null;
+    attemptid: number | null;
+    quesid: number | null;
+    ansid: number | null;
+    is_delete: boolean | null;
+};
+export type Attempt_AnswerCountAggregateOutputType = {
+    attemptansid: number;
+    attemptid: number;
+    quesid: number;
+    ansid: number;
+    is_delete: number;
+    _all: number;
+};
+export type Attempt_AnswerAvgAggregateInputType = {
+    attemptansid?: true;
+    attemptid?: true;
+    quesid?: true;
+    ansid?: true;
+};
+export type Attempt_AnswerSumAggregateInputType = {
+    attemptansid?: true;
+    attemptid?: true;
+    quesid?: true;
+    ansid?: true;
+};
+export type Attempt_AnswerMinAggregateInputType = {
+    attemptansid?: true;
+    attemptid?: true;
+    quesid?: true;
+    ansid?: true;
+    is_delete?: true;
+};
+export type Attempt_AnswerMaxAggregateInputType = {
+    attemptansid?: true;
+    attemptid?: true;
+    quesid?: true;
+    ansid?: true;
+    is_delete?: true;
+};
+export type Attempt_AnswerCountAggregateInputType = {
+    attemptansid?: true;
+    attemptid?: true;
+    quesid?: true;
+    ansid?: true;
+    is_delete?: true;
+    _all?: true;
+};
+export type Attempt_AnswerAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Attempt_Answer to aggregate.
+     */
+    where?: Prisma.Attempt_AnswerWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Attempt_Answers to fetch.
+     */
+    orderBy?: Prisma.Attempt_AnswerOrderByWithRelationInput | Prisma.Attempt_AnswerOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.Attempt_AnswerWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Attempt_Answers from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Attempt_Answers.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned Attempt_Answers
+    **/
+    _count?: true | Attempt_AnswerCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: Attempt_AnswerAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: Attempt_AnswerSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: Attempt_AnswerMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: Attempt_AnswerMaxAggregateInputType;
+};
+export type GetAttempt_AnswerAggregateType<T extends Attempt_AnswerAggregateArgs> = {
+    [P in keyof T & keyof AggregateAttempt_Answer]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateAttempt_Answer[P]> : Prisma.GetScalarType<T[P], AggregateAttempt_Answer[P]>;
+};
+export type Attempt_AnswerGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.Attempt_AnswerWhereInput;
+    orderBy?: Prisma.Attempt_AnswerOrderByWithAggregationInput | Prisma.Attempt_AnswerOrderByWithAggregationInput[];
+    by: Prisma.Attempt_AnswerScalarFieldEnum[] | Prisma.Attempt_AnswerScalarFieldEnum;
+    having?: Prisma.Attempt_AnswerScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: Attempt_AnswerCountAggregateInputType | true;
+    _avg?: Attempt_AnswerAvgAggregateInputType;
+    _sum?: Attempt_AnswerSumAggregateInputType;
+    _min?: Attempt_AnswerMinAggregateInputType;
+    _max?: Attempt_AnswerMaxAggregateInputType;
+};
+export type Attempt_AnswerGroupByOutputType = {
+    attemptansid: number;
+    attemptid: number;
+    quesid: number;
+    ansid: number;
+    is_delete: boolean;
+    _count: Attempt_AnswerCountAggregateOutputType | null;
+    _avg: Attempt_AnswerAvgAggregateOutputType | null;
+    _sum: Attempt_AnswerSumAggregateOutputType | null;
+    _min: Attempt_AnswerMinAggregateOutputType | null;
+    _max: Attempt_AnswerMaxAggregateOutputType | null;
+};
+type GetAttempt_AnswerGroupByPayload<T extends Attempt_AnswerGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<Attempt_AnswerGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof Attempt_AnswerGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], Attempt_AnswerGroupByOutputType[P]> : Prisma.GetScalarType<T[P], Attempt_AnswerGroupByOutputType[P]>;
+}>>;
+export type Attempt_AnswerWhereInput = {
+    AND?: Prisma.Attempt_AnswerWhereInput | Prisma.Attempt_AnswerWhereInput[];
+    OR?: Prisma.Attempt_AnswerWhereInput[];
+    NOT?: Prisma.Attempt_AnswerWhereInput | Prisma.Attempt_AnswerWhereInput[];
+    attemptansid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    attemptid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    quesid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    ansid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    is_delete?: Prisma.BoolFilter<"Attempt_Answer"> | boolean;
+    attempt?: Prisma.XOR<Prisma.Exam_AttemptScalarRelationFilter, Prisma.Exam_AttemptWhereInput>;
+    question?: Prisma.XOR<Prisma.QuestionScalarRelationFilter, Prisma.QuestionWhereInput>;
+    answer?: Prisma.XOR<Prisma.AnswerScalarRelationFilter, Prisma.AnswerWhereInput>;
+};
+export type Attempt_AnswerOrderByWithRelationInput = {
+    attemptansid?: Prisma.SortOrder;
+    attemptid?: Prisma.SortOrder;
+    quesid?: Prisma.SortOrder;
+    ansid?: Prisma.SortOrder;
+    is_delete?: Prisma.SortOrder;
+    attempt?: Prisma.Exam_AttemptOrderByWithRelationInput;
+    question?: Prisma.QuestionOrderByWithRelationInput;
+    answer?: Prisma.AnswerOrderByWithRelationInput;
+};
+export type Attempt_AnswerWhereUniqueInput = Prisma.AtLeast<{
+    attemptansid?: number;
+    AND?: Prisma.Attempt_AnswerWhereInput | Prisma.Attempt_AnswerWhereInput[];
+    OR?: Prisma.Attempt_AnswerWhereInput[];
+    NOT?: Prisma.Attempt_AnswerWhereInput | Prisma.Attempt_AnswerWhereInput[];
+    attemptid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    quesid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    ansid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    is_delete?: Prisma.BoolFilter<"Attempt_Answer"> | boolean;
+    attempt?: Prisma.XOR<Prisma.Exam_AttemptScalarRelationFilter, Prisma.Exam_AttemptWhereInput>;
+    question?: Prisma.XOR<Prisma.QuestionScalarRelationFilter, Prisma.QuestionWhereInput>;
+    answer?: Prisma.XOR<Prisma.AnswerScalarRelationFilter, Prisma.AnswerWhereInput>;
+}, "attemptansid">;
+export type Attempt_AnswerOrderByWithAggregationInput = {
+    attemptansid?: Prisma.SortOrder;
+    attemptid?: Prisma.SortOrder;
+    quesid?: Prisma.SortOrder;
+    ansid?: Prisma.SortOrder;
+    is_delete?: Prisma.SortOrder;
+    _count?: Prisma.Attempt_AnswerCountOrderByAggregateInput;
+    _avg?: Prisma.Attempt_AnswerAvgOrderByAggregateInput;
+    _max?: Prisma.Attempt_AnswerMaxOrderByAggregateInput;
+    _min?: Prisma.Attempt_AnswerMinOrderByAggregateInput;
+    _sum?: Prisma.Attempt_AnswerSumOrderByAggregateInput;
+};
+export type Attempt_AnswerScalarWhereWithAggregatesInput = {
+    AND?: Prisma.Attempt_AnswerScalarWhereWithAggregatesInput | Prisma.Attempt_AnswerScalarWhereWithAggregatesInput[];
+    OR?: Prisma.Attempt_AnswerScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.Attempt_AnswerScalarWhereWithAggregatesInput | Prisma.Attempt_AnswerScalarWhereWithAggregatesInput[];
+    attemptansid?: Prisma.IntWithAggregatesFilter<"Attempt_Answer"> | number;
+    attemptid?: Prisma.IntWithAggregatesFilter<"Attempt_Answer"> | number;
+    quesid?: Prisma.IntWithAggregatesFilter<"Attempt_Answer"> | number;
+    ansid?: Prisma.IntWithAggregatesFilter<"Attempt_Answer"> | number;
+    is_delete?: Prisma.BoolWithAggregatesFilter<"Attempt_Answer"> | boolean;
+};
+export type Attempt_AnswerCreateInput = {
+    is_delete?: boolean;
+    attempt: Prisma.Exam_AttemptCreateNestedOneWithoutAttemp_answerInput;
+    question: Prisma.QuestionCreateNestedOneWithoutAttempt_answerInput;
+    answer: Prisma.AnswerCreateNestedOneWithoutAttempt_answerInput;
+};
+export type Attempt_AnswerUncheckedCreateInput = {
+    attemptansid?: number;
+    attemptid: number;
+    quesid: number;
+    ansid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerUpdateInput = {
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    attempt?: Prisma.Exam_AttemptUpdateOneRequiredWithoutAttemp_answerNestedInput;
+    question?: Prisma.QuestionUpdateOneRequiredWithoutAttempt_answerNestedInput;
+    answer?: Prisma.AnswerUpdateOneRequiredWithoutAttempt_answerNestedInput;
+};
+export type Attempt_AnswerUncheckedUpdateInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    attemptid?: Prisma.IntFieldUpdateOperationsInput | number;
+    quesid?: Prisma.IntFieldUpdateOperationsInput | number;
+    ansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerCreateManyInput = {
+    attemptansid?: number;
+    attemptid: number;
+    quesid: number;
+    ansid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerUpdateManyMutationInput = {
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerUncheckedUpdateManyInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    attemptid?: Prisma.IntFieldUpdateOperationsInput | number;
+    quesid?: Prisma.IntFieldUpdateOperationsInput | number;
+    ansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerListRelationFilter = {
+    every?: Prisma.Attempt_AnswerWhereInput;
+    some?: Prisma.Attempt_AnswerWhereInput;
+    none?: Prisma.Attempt_AnswerWhereInput;
+};
+export type Attempt_AnswerOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type Attempt_AnswerCountOrderByAggregateInput = {
+    attemptansid?: Prisma.SortOrder;
+    attemptid?: Prisma.SortOrder;
+    quesid?: Prisma.SortOrder;
+    ansid?: Prisma.SortOrder;
+    is_delete?: Prisma.SortOrder;
+};
+export type Attempt_AnswerAvgOrderByAggregateInput = {
+    attemptansid?: Prisma.SortOrder;
+    attemptid?: Prisma.SortOrder;
+    quesid?: Prisma.SortOrder;
+    ansid?: Prisma.SortOrder;
+};
+export type Attempt_AnswerMaxOrderByAggregateInput = {
+    attemptansid?: Prisma.SortOrder;
+    attemptid?: Prisma.SortOrder;
+    quesid?: Prisma.SortOrder;
+    ansid?: Prisma.SortOrder;
+    is_delete?: Prisma.SortOrder;
+};
+export type Attempt_AnswerMinOrderByAggregateInput = {
+    attemptansid?: Prisma.SortOrder;
+    attemptid?: Prisma.SortOrder;
+    quesid?: Prisma.SortOrder;
+    ansid?: Prisma.SortOrder;
+    is_delete?: Prisma.SortOrder;
+};
+export type Attempt_AnswerSumOrderByAggregateInput = {
+    attemptansid?: Prisma.SortOrder;
+    attemptid?: Prisma.SortOrder;
+    quesid?: Prisma.SortOrder;
+    ansid?: Prisma.SortOrder;
+};
+export type Attempt_AnswerCreateNestedManyWithoutQuestionInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput> | Prisma.Attempt_AnswerCreateWithoutQuestionInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput | Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyQuestionInputEnvelope;
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+};
+export type Attempt_AnswerUncheckedCreateNestedManyWithoutQuestionInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput> | Prisma.Attempt_AnswerCreateWithoutQuestionInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput | Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyQuestionInputEnvelope;
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+};
+export type Attempt_AnswerUpdateManyWithoutQuestionNestedInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput> | Prisma.Attempt_AnswerCreateWithoutQuestionInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput | Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput[];
+    upsert?: Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutQuestionInput | Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutQuestionInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyQuestionInputEnvelope;
+    set?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    disconnect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    delete?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    update?: Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutQuestionInput | Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutQuestionInput[];
+    updateMany?: Prisma.Attempt_AnswerUpdateManyWithWhereWithoutQuestionInput | Prisma.Attempt_AnswerUpdateManyWithWhereWithoutQuestionInput[];
+    deleteMany?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+};
+export type Attempt_AnswerUncheckedUpdateManyWithoutQuestionNestedInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput> | Prisma.Attempt_AnswerCreateWithoutQuestionInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput | Prisma.Attempt_AnswerCreateOrConnectWithoutQuestionInput[];
+    upsert?: Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutQuestionInput | Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutQuestionInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyQuestionInputEnvelope;
+    set?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    disconnect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    delete?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    update?: Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutQuestionInput | Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutQuestionInput[];
+    updateMany?: Prisma.Attempt_AnswerUpdateManyWithWhereWithoutQuestionInput | Prisma.Attempt_AnswerUpdateManyWithWhereWithoutQuestionInput[];
+    deleteMany?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+};
+export type Attempt_AnswerCreateNestedManyWithoutAnswerInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput> | Prisma.Attempt_AnswerCreateWithoutAnswerInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAnswerInputEnvelope;
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+};
+export type Attempt_AnswerUncheckedCreateNestedManyWithoutAnswerInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput> | Prisma.Attempt_AnswerCreateWithoutAnswerInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAnswerInputEnvelope;
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+};
+export type Attempt_AnswerUpdateManyWithoutAnswerNestedInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput> | Prisma.Attempt_AnswerCreateWithoutAnswerInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput[];
+    upsert?: Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAnswerInput | Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAnswerInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAnswerInputEnvelope;
+    set?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    disconnect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    delete?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    update?: Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAnswerInput | Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAnswerInput[];
+    updateMany?: Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAnswerInput | Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAnswerInput[];
+    deleteMany?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+};
+export type Attempt_AnswerUncheckedUpdateManyWithoutAnswerNestedInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput> | Prisma.Attempt_AnswerCreateWithoutAnswerInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAnswerInput[];
+    upsert?: Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAnswerInput | Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAnswerInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAnswerInputEnvelope;
+    set?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    disconnect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    delete?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    update?: Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAnswerInput | Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAnswerInput[];
+    updateMany?: Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAnswerInput | Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAnswerInput[];
+    deleteMany?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+};
+export type Attempt_AnswerCreateNestedManyWithoutAttemptInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput> | Prisma.Attempt_AnswerCreateWithoutAttemptInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAttemptInputEnvelope;
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+};
+export type Attempt_AnswerUncheckedCreateNestedManyWithoutAttemptInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput> | Prisma.Attempt_AnswerCreateWithoutAttemptInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAttemptInputEnvelope;
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+};
+export type Attempt_AnswerUpdateManyWithoutAttemptNestedInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput> | Prisma.Attempt_AnswerCreateWithoutAttemptInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput[];
+    upsert?: Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAttemptInput | Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAttemptInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAttemptInputEnvelope;
+    set?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    disconnect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    delete?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    update?: Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAttemptInput | Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAttemptInput[];
+    updateMany?: Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAttemptInput | Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAttemptInput[];
+    deleteMany?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+};
+export type Attempt_AnswerUncheckedUpdateManyWithoutAttemptNestedInput = {
+    create?: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput> | Prisma.Attempt_AnswerCreateWithoutAttemptInput[] | Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput[];
+    connectOrCreate?: Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput | Prisma.Attempt_AnswerCreateOrConnectWithoutAttemptInput[];
+    upsert?: Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAttemptInput | Prisma.Attempt_AnswerUpsertWithWhereUniqueWithoutAttemptInput[];
+    createMany?: Prisma.Attempt_AnswerCreateManyAttemptInputEnvelope;
+    set?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    disconnect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    delete?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    connect?: Prisma.Attempt_AnswerWhereUniqueInput | Prisma.Attempt_AnswerWhereUniqueInput[];
+    update?: Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAttemptInput | Prisma.Attempt_AnswerUpdateWithWhereUniqueWithoutAttemptInput[];
+    updateMany?: Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAttemptInput | Prisma.Attempt_AnswerUpdateManyWithWhereWithoutAttemptInput[];
+    deleteMany?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+};
+export type Attempt_AnswerCreateWithoutQuestionInput = {
+    is_delete?: boolean;
+    attempt: Prisma.Exam_AttemptCreateNestedOneWithoutAttemp_answerInput;
+    answer: Prisma.AnswerCreateNestedOneWithoutAttempt_answerInput;
+};
+export type Attempt_AnswerUncheckedCreateWithoutQuestionInput = {
+    attemptansid?: number;
+    attemptid: number;
+    ansid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerCreateOrConnectWithoutQuestionInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    create: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput>;
+};
+export type Attempt_AnswerCreateManyQuestionInputEnvelope = {
+    data: Prisma.Attempt_AnswerCreateManyQuestionInput | Prisma.Attempt_AnswerCreateManyQuestionInput[];
+    skipDuplicates?: boolean;
+};
+export type Attempt_AnswerUpsertWithWhereUniqueWithoutQuestionInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    update: Prisma.XOR<Prisma.Attempt_AnswerUpdateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedUpdateWithoutQuestionInput>;
+    create: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedCreateWithoutQuestionInput>;
+};
+export type Attempt_AnswerUpdateWithWhereUniqueWithoutQuestionInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateWithoutQuestionInput, Prisma.Attempt_AnswerUncheckedUpdateWithoutQuestionInput>;
+};
+export type Attempt_AnswerUpdateManyWithWhereWithoutQuestionInput = {
+    where: Prisma.Attempt_AnswerScalarWhereInput;
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateManyMutationInput, Prisma.Attempt_AnswerUncheckedUpdateManyWithoutQuestionInput>;
+};
+export type Attempt_AnswerScalarWhereInput = {
+    AND?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+    OR?: Prisma.Attempt_AnswerScalarWhereInput[];
+    NOT?: Prisma.Attempt_AnswerScalarWhereInput | Prisma.Attempt_AnswerScalarWhereInput[];
+    attemptansid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    attemptid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    quesid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    ansid?: Prisma.IntFilter<"Attempt_Answer"> | number;
+    is_delete?: Prisma.BoolFilter<"Attempt_Answer"> | boolean;
+};
+export type Attempt_AnswerCreateWithoutAnswerInput = {
+    is_delete?: boolean;
+    attempt: Prisma.Exam_AttemptCreateNestedOneWithoutAttemp_answerInput;
+    question: Prisma.QuestionCreateNestedOneWithoutAttempt_answerInput;
+};
+export type Attempt_AnswerUncheckedCreateWithoutAnswerInput = {
+    attemptansid?: number;
+    attemptid: number;
+    quesid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerCreateOrConnectWithoutAnswerInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    create: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput>;
+};
+export type Attempt_AnswerCreateManyAnswerInputEnvelope = {
+    data: Prisma.Attempt_AnswerCreateManyAnswerInput | Prisma.Attempt_AnswerCreateManyAnswerInput[];
+    skipDuplicates?: boolean;
+};
+export type Attempt_AnswerUpsertWithWhereUniqueWithoutAnswerInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    update: Prisma.XOR<Prisma.Attempt_AnswerUpdateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedUpdateWithoutAnswerInput>;
+    create: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAnswerInput>;
+};
+export type Attempt_AnswerUpdateWithWhereUniqueWithoutAnswerInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateWithoutAnswerInput, Prisma.Attempt_AnswerUncheckedUpdateWithoutAnswerInput>;
+};
+export type Attempt_AnswerUpdateManyWithWhereWithoutAnswerInput = {
+    where: Prisma.Attempt_AnswerScalarWhereInput;
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateManyMutationInput, Prisma.Attempt_AnswerUncheckedUpdateManyWithoutAnswerInput>;
+};
+export type Attempt_AnswerCreateWithoutAttemptInput = {
+    is_delete?: boolean;
+    question: Prisma.QuestionCreateNestedOneWithoutAttempt_answerInput;
+    answer: Prisma.AnswerCreateNestedOneWithoutAttempt_answerInput;
+};
+export type Attempt_AnswerUncheckedCreateWithoutAttemptInput = {
+    attemptansid?: number;
+    quesid: number;
+    ansid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerCreateOrConnectWithoutAttemptInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    create: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput>;
+};
+export type Attempt_AnswerCreateManyAttemptInputEnvelope = {
+    data: Prisma.Attempt_AnswerCreateManyAttemptInput | Prisma.Attempt_AnswerCreateManyAttemptInput[];
+    skipDuplicates?: boolean;
+};
+export type Attempt_AnswerUpsertWithWhereUniqueWithoutAttemptInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    update: Prisma.XOR<Prisma.Attempt_AnswerUpdateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedUpdateWithoutAttemptInput>;
+    create: Prisma.XOR<Prisma.Attempt_AnswerCreateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedCreateWithoutAttemptInput>;
+};
+export type Attempt_AnswerUpdateWithWhereUniqueWithoutAttemptInput = {
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateWithoutAttemptInput, Prisma.Attempt_AnswerUncheckedUpdateWithoutAttemptInput>;
+};
+export type Attempt_AnswerUpdateManyWithWhereWithoutAttemptInput = {
+    where: Prisma.Attempt_AnswerScalarWhereInput;
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateManyMutationInput, Prisma.Attempt_AnswerUncheckedUpdateManyWithoutAttemptInput>;
+};
+export type Attempt_AnswerCreateManyQuestionInput = {
+    attemptansid?: number;
+    attemptid: number;
+    ansid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerUpdateWithoutQuestionInput = {
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    attempt?: Prisma.Exam_AttemptUpdateOneRequiredWithoutAttemp_answerNestedInput;
+    answer?: Prisma.AnswerUpdateOneRequiredWithoutAttempt_answerNestedInput;
+};
+export type Attempt_AnswerUncheckedUpdateWithoutQuestionInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    attemptid?: Prisma.IntFieldUpdateOperationsInput | number;
+    ansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerUncheckedUpdateManyWithoutQuestionInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    attemptid?: Prisma.IntFieldUpdateOperationsInput | number;
+    ansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerCreateManyAnswerInput = {
+    attemptansid?: number;
+    attemptid: number;
+    quesid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerUpdateWithoutAnswerInput = {
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    attempt?: Prisma.Exam_AttemptUpdateOneRequiredWithoutAttemp_answerNestedInput;
+    question?: Prisma.QuestionUpdateOneRequiredWithoutAttempt_answerNestedInput;
+};
+export type Attempt_AnswerUncheckedUpdateWithoutAnswerInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    attemptid?: Prisma.IntFieldUpdateOperationsInput | number;
+    quesid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerUncheckedUpdateManyWithoutAnswerInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    attemptid?: Prisma.IntFieldUpdateOperationsInput | number;
+    quesid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerCreateManyAttemptInput = {
+    attemptansid?: number;
+    quesid: number;
+    ansid: number;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerUpdateWithoutAttemptInput = {
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    question?: Prisma.QuestionUpdateOneRequiredWithoutAttempt_answerNestedInput;
+    answer?: Prisma.AnswerUpdateOneRequiredWithoutAttempt_answerNestedInput;
+};
+export type Attempt_AnswerUncheckedUpdateWithoutAttemptInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    quesid?: Prisma.IntFieldUpdateOperationsInput | number;
+    ansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerUncheckedUpdateManyWithoutAttemptInput = {
+    attemptansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    quesid?: Prisma.IntFieldUpdateOperationsInput | number;
+    ansid?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_delete?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type Attempt_AnswerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    attemptansid?: boolean;
+    attemptid?: boolean;
+    quesid?: boolean;
+    ansid?: boolean;
+    is_delete?: boolean;
+    attempt?: boolean | Prisma.Exam_AttemptDefaultArgs<ExtArgs>;
+    question?: boolean | Prisma.QuestionDefaultArgs<ExtArgs>;
+    answer?: boolean | Prisma.AnswerDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["attempt_Answer"]>;
+export type Attempt_AnswerSelectScalar = {
+    attemptansid?: boolean;
+    attemptid?: boolean;
+    quesid?: boolean;
+    ansid?: boolean;
+    is_delete?: boolean;
+};
+export type Attempt_AnswerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"attemptansid" | "attemptid" | "quesid" | "ansid" | "is_delete", ExtArgs["result"]["attempt_Answer"]>;
+export type Attempt_AnswerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    attempt?: boolean | Prisma.Exam_AttemptDefaultArgs<ExtArgs>;
+    question?: boolean | Prisma.QuestionDefaultArgs<ExtArgs>;
+    answer?: boolean | Prisma.AnswerDefaultArgs<ExtArgs>;
+};
+export type $Attempt_AnswerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "Attempt_Answer";
+    objects: {
+        attempt: Prisma.$Exam_AttemptPayload<ExtArgs>;
+        question: Prisma.$QuestionPayload<ExtArgs>;
+        answer: Prisma.$AnswerPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        attemptansid: number;
+        attemptid: number;
+        quesid: number;
+        ansid: number;
+        is_delete: boolean;
+    }, ExtArgs["result"]["attempt_Answer"]>;
+    composites: {};
+};
+export type Attempt_AnswerGetPayload<S extends boolean | null | undefined | Attempt_AnswerDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload, S>;
+export type Attempt_AnswerCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<Attempt_AnswerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: Attempt_AnswerCountAggregateInputType | true;
+};
+export interface Attempt_AnswerDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['Attempt_Answer'];
+        meta: {
+            name: 'Attempt_Answer';
+        };
+    };
+    /**
+     * Find zero or one Attempt_Answer that matches the filter.
+     * @param {Attempt_AnswerFindUniqueArgs} args - Arguments to find a Attempt_Answer
+     * @example
+     * // Get one Attempt_Answer
+     * const attempt_Answer = await prisma.attempt_Answer.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends Attempt_AnswerFindUniqueArgs>(args: Prisma.SelectSubset<T, Attempt_AnswerFindUniqueArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Attempt_Answer that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {Attempt_AnswerFindUniqueOrThrowArgs} args - Arguments to find a Attempt_Answer
+     * @example
+     * // Get one Attempt_Answer
+     * const attempt_Answer = await prisma.attempt_Answer.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends Attempt_AnswerFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, Attempt_AnswerFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Attempt_Answer that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Attempt_AnswerFindFirstArgs} args - Arguments to find a Attempt_Answer
+     * @example
+     * // Get one Attempt_Answer
+     * const attempt_Answer = await prisma.attempt_Answer.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends Attempt_AnswerFindFirstArgs>(args?: Prisma.SelectSubset<T, Attempt_AnswerFindFirstArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Attempt_Answer that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Attempt_AnswerFindFirstOrThrowArgs} args - Arguments to find a Attempt_Answer
+     * @example
+     * // Get one Attempt_Answer
+     * const attempt_Answer = await prisma.attempt_Answer.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends Attempt_AnswerFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, Attempt_AnswerFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Attempt_Answers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Attempt_AnswerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Attempt_Answers
+     * const attempt_Answers = await prisma.attempt_Answer.findMany()
+     *
+     * // Get first 10 Attempt_Answers
+     * const attempt_Answers = await prisma.attempt_Answer.findMany({ take: 10 })
+     *
+     * // Only select the `attemptansid`
+     * const attempt_AnswerWithAttemptansidOnly = await prisma.attempt_Answer.findMany({ select: { attemptansid: true } })
+     *
+     */
+    findMany<T extends Attempt_AnswerFindManyArgs>(args?: Prisma.SelectSubset<T, Attempt_AnswerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Attempt_Answer.
+     * @param {Attempt_AnswerCreateArgs} args - Arguments to create a Attempt_Answer.
+     * @example
+     * // Create one Attempt_Answer
+     * const Attempt_Answer = await prisma.attempt_Answer.create({
+     *   data: {
+     *     // ... data to create a Attempt_Answer
+     *   }
+     * })
+     *
+     */
+    create<T extends Attempt_AnswerCreateArgs>(args: Prisma.SelectSubset<T, Attempt_AnswerCreateArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Attempt_Answers.
+     * @param {Attempt_AnswerCreateManyArgs} args - Arguments to create many Attempt_Answers.
+     * @example
+     * // Create many Attempt_Answers
+     * const attempt_Answer = await prisma.attempt_Answer.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends Attempt_AnswerCreateManyArgs>(args?: Prisma.SelectSubset<T, Attempt_AnswerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Delete a Attempt_Answer.
+     * @param {Attempt_AnswerDeleteArgs} args - Arguments to delete one Attempt_Answer.
+     * @example
+     * // Delete one Attempt_Answer
+     * const Attempt_Answer = await prisma.attempt_Answer.delete({
+     *   where: {
+     *     // ... filter to delete one Attempt_Answer
+     *   }
+     * })
+     *
+     */
+    delete<T extends Attempt_AnswerDeleteArgs>(args: Prisma.SelectSubset<T, Attempt_AnswerDeleteArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Attempt_Answer.
+     * @param {Attempt_AnswerUpdateArgs} args - Arguments to update one Attempt_Answer.
+     * @example
+     * // Update one Attempt_Answer
+     * const attempt_Answer = await prisma.attempt_Answer.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends Attempt_AnswerUpdateArgs>(args: Prisma.SelectSubset<T, Attempt_AnswerUpdateArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Attempt_Answers.
+     * @param {Attempt_AnswerDeleteManyArgs} args - Arguments to filter Attempt_Answers to delete.
+     * @example
+     * // Delete a few Attempt_Answers
+     * const { count } = await prisma.attempt_Answer.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends Attempt_AnswerDeleteManyArgs>(args?: Prisma.SelectSubset<T, Attempt_AnswerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Attempt_Answers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Attempt_AnswerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Attempt_Answers
+     * const attempt_Answer = await prisma.attempt_Answer.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends Attempt_AnswerUpdateManyArgs>(args: Prisma.SelectSubset<T, Attempt_AnswerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create or update one Attempt_Answer.
+     * @param {Attempt_AnswerUpsertArgs} args - Arguments to update or create a Attempt_Answer.
+     * @example
+     * // Update or create a Attempt_Answer
+     * const attempt_Answer = await prisma.attempt_Answer.upsert({
+     *   create: {
+     *     // ... data to create a Attempt_Answer
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Attempt_Answer we want to update
+     *   }
+     * })
+     */
+    upsert<T extends Attempt_AnswerUpsertArgs>(args: Prisma.SelectSubset<T, Attempt_AnswerUpsertArgs<ExtArgs>>): Prisma.Prisma__Attempt_AnswerClient<runtime.Types.Result.GetResult<Prisma.$Attempt_AnswerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Attempt_Answers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Attempt_AnswerCountArgs} args - Arguments to filter Attempt_Answers to count.
+     * @example
+     * // Count the number of Attempt_Answers
+     * const count = await prisma.attempt_Answer.count({
+     *   where: {
+     *     // ... the filter for the Attempt_Answers we want to count
+     *   }
+     * })
+    **/
+    count<T extends Attempt_AnswerCountArgs>(args?: Prisma.Subset<T, Attempt_AnswerCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], Attempt_AnswerCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Attempt_Answer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Attempt_AnswerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Attempt_AnswerAggregateArgs>(args: Prisma.Subset<T, Attempt_AnswerAggregateArgs>): Prisma.PrismaPromise<GetAttempt_AnswerAggregateType<T>>;
+    /**
+     * Group by Attempt_Answer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Attempt_AnswerGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends Attempt_AnswerGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: Attempt_AnswerGroupByArgs['orderBy'];
+    } : {
+        orderBy?: Attempt_AnswerGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, Attempt_AnswerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAttempt_AnswerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the Attempt_Answer model
+     */
+    readonly fields: Attempt_AnswerFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for Attempt_Answer.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__Attempt_AnswerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    attempt<T extends Prisma.Exam_AttemptDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Exam_AttemptDefaultArgs<ExtArgs>>): Prisma.Prisma__Exam_AttemptClient<runtime.Types.Result.GetResult<Prisma.$Exam_AttemptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    question<T extends Prisma.QuestionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.QuestionDefaultArgs<ExtArgs>>): Prisma.Prisma__QuestionClient<runtime.Types.Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    answer<T extends Prisma.AnswerDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AnswerDefaultArgs<ExtArgs>>): Prisma.Prisma__AnswerClient<runtime.Types.Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the Attempt_Answer model
+ */
+export interface Attempt_AnswerFieldRefs {
+    readonly attemptansid: Prisma.FieldRef<"Attempt_Answer", 'Int'>;
+    readonly attemptid: Prisma.FieldRef<"Attempt_Answer", 'Int'>;
+    readonly quesid: Prisma.FieldRef<"Attempt_Answer", 'Int'>;
+    readonly ansid: Prisma.FieldRef<"Attempt_Answer", 'Int'>;
+    readonly is_delete: Prisma.FieldRef<"Attempt_Answer", 'Boolean'>;
+}
+/**
+ * Attempt_Answer findUnique
+ */
+export type Attempt_AnswerFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * Filter, which Attempt_Answer to fetch.
+     */
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+};
+/**
+ * Attempt_Answer findUniqueOrThrow
+ */
+export type Attempt_AnswerFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * Filter, which Attempt_Answer to fetch.
+     */
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+};
+/**
+ * Attempt_Answer findFirst
+ */
+export type Attempt_AnswerFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * Filter, which Attempt_Answer to fetch.
+     */
+    where?: Prisma.Attempt_AnswerWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Attempt_Answers to fetch.
+     */
+    orderBy?: Prisma.Attempt_AnswerOrderByWithRelationInput | Prisma.Attempt_AnswerOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Attempt_Answers.
+     */
+    cursor?: Prisma.Attempt_AnswerWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Attempt_Answers from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Attempt_Answers.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Attempt_Answers.
+     */
+    distinct?: Prisma.Attempt_AnswerScalarFieldEnum | Prisma.Attempt_AnswerScalarFieldEnum[];
+};
+/**
+ * Attempt_Answer findFirstOrThrow
+ */
+export type Attempt_AnswerFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * Filter, which Attempt_Answer to fetch.
+     */
+    where?: Prisma.Attempt_AnswerWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Attempt_Answers to fetch.
+     */
+    orderBy?: Prisma.Attempt_AnswerOrderByWithRelationInput | Prisma.Attempt_AnswerOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Attempt_Answers.
+     */
+    cursor?: Prisma.Attempt_AnswerWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Attempt_Answers from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Attempt_Answers.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Attempt_Answers.
+     */
+    distinct?: Prisma.Attempt_AnswerScalarFieldEnum | Prisma.Attempt_AnswerScalarFieldEnum[];
+};
+/**
+ * Attempt_Answer findMany
+ */
+export type Attempt_AnswerFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * Filter, which Attempt_Answers to fetch.
+     */
+    where?: Prisma.Attempt_AnswerWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Attempt_Answers to fetch.
+     */
+    orderBy?: Prisma.Attempt_AnswerOrderByWithRelationInput | Prisma.Attempt_AnswerOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing Attempt_Answers.
+     */
+    cursor?: Prisma.Attempt_AnswerWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Attempt_Answers from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Attempt_Answers.
+     */
+    skip?: number;
+    distinct?: Prisma.Attempt_AnswerScalarFieldEnum | Prisma.Attempt_AnswerScalarFieldEnum[];
+};
+/**
+ * Attempt_Answer create
+ */
+export type Attempt_AnswerCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a Attempt_Answer.
+     */
+    data: Prisma.XOR<Prisma.Attempt_AnswerCreateInput, Prisma.Attempt_AnswerUncheckedCreateInput>;
+};
+/**
+ * Attempt_Answer createMany
+ */
+export type Attempt_AnswerCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Attempt_Answers.
+     */
+    data: Prisma.Attempt_AnswerCreateManyInput | Prisma.Attempt_AnswerCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Attempt_Answer update
+ */
+export type Attempt_AnswerUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a Attempt_Answer.
+     */
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateInput, Prisma.Attempt_AnswerUncheckedUpdateInput>;
+    /**
+     * Choose, which Attempt_Answer to update.
+     */
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+};
+/**
+ * Attempt_Answer updateMany
+ */
+export type Attempt_AnswerUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Attempt_Answers.
+     */
+    data: Prisma.XOR<Prisma.Attempt_AnswerUpdateManyMutationInput, Prisma.Attempt_AnswerUncheckedUpdateManyInput>;
+    /**
+     * Filter which Attempt_Answers to update
+     */
+    where?: Prisma.Attempt_AnswerWhereInput;
+    /**
+     * Limit how many Attempt_Answers to update.
+     */
+    limit?: number;
+};
+/**
+ * Attempt_Answer upsert
+ */
+export type Attempt_AnswerUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the Attempt_Answer to update in case it exists.
+     */
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+    /**
+     * In case the Attempt_Answer found by the `where` argument doesn't exist, create a new Attempt_Answer with this data.
+     */
+    create: Prisma.XOR<Prisma.Attempt_AnswerCreateInput, Prisma.Attempt_AnswerUncheckedCreateInput>;
+    /**
+     * In case the Attempt_Answer was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.Attempt_AnswerUpdateInput, Prisma.Attempt_AnswerUncheckedUpdateInput>;
+};
+/**
+ * Attempt_Answer delete
+ */
+export type Attempt_AnswerDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+    /**
+     * Filter which Attempt_Answer to delete.
+     */
+    where: Prisma.Attempt_AnswerWhereUniqueInput;
+};
+/**
+ * Attempt_Answer deleteMany
+ */
+export type Attempt_AnswerDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Attempt_Answers to delete
+     */
+    where?: Prisma.Attempt_AnswerWhereInput;
+    /**
+     * Limit how many Attempt_Answers to delete.
+     */
+    limit?: number;
+};
+/**
+ * Attempt_Answer without action
+ */
+export type Attempt_AnswerDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attempt_Answer
+     */
+    select?: Prisma.Attempt_AnswerSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Attempt_Answer
+     */
+    omit?: Prisma.Attempt_AnswerOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.Attempt_AnswerInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=Attempt_Answer.d.ts.map
