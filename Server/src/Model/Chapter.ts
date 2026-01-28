@@ -9,7 +9,7 @@ export const getallchapter = async ():Promise<Chapter[]> =>{
     });
 }
 export const getchapter = async (id:number):Promise<Chapter> =>{
-    return await prisma.chapter.findMany({
+    return await prisma.chapter.findUnique({
         where: {
             chapid:id,
             is_delete:true,
@@ -40,7 +40,7 @@ export const deletechapter = async (id:number):Promise<void> =>{
 export const updatechapter = async (id:number, chapter:Chapter):Promise<void> =>{
     return await prisma.chapter.update({
         where: {
-            chapterid:id,
+            chapid:id,
         },
         data:{
           chapname:chapter.chapname,

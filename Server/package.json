@@ -14,10 +14,12 @@
   "type": "module",
   "dependencies": {
     "@prisma/client": "^6.19.2",
+    "bcrypt": "^6.0.0",
     "express": "^5.2.1",
     "prisma": "^6.19.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.6",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
