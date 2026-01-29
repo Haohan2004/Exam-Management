@@ -8,7 +8,7 @@ export const getallchapter = async ():Promise<Chapter[]> =>{
         },
     });
 }
-export const getchapter = async (id:number):Promise<Chapter> =>{
+export const getchapter = async (id:number) =>{
     return await prisma.chapter.findUnique({
         where: {
             chapid:id,
@@ -27,7 +27,7 @@ export const addchapter = async (chapter:Chapter) =>{
     });
 }
 
-export const deletechapter = async (id:number):Promise<void> =>{
+export const deletechapter = async (id:number) =>{
     return await prisma.chapter.update({
         where: {
             chapid:id,
@@ -37,7 +37,7 @@ export const deletechapter = async (id:number):Promise<void> =>{
         },
     });
 }
-export const updatechapter = async (id:number, chapter:Chapter):Promise<void> =>{
+export const updatechapter = async (id:number, chapter:Chapter) =>{
     return await prisma.chapter.update({
         where: {
             chapid:id,
