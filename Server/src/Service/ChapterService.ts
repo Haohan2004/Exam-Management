@@ -1,10 +1,10 @@
 import {addchapter, deletechapter, getallchapter, getchapter, updatechapter} from "../Model/Chapter.js";
-import {Chapter} from "@prisma/client";
+import type {Chapter} from "@prisma/client";
 
 export const getallchapterService = async () => {
     return await getallchapter();
 }
-export const getchapterService = async (id:number):Promise<Chapter> => {
+export const getchapterService = async (id:number) => {
     return await getchapter(id)
 }
 export const createchapterService = async (chapter: Chapter) => {
