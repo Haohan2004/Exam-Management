@@ -1,6 +1,20 @@
 import {Link} from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import {useState} from "react";
 const Login = () =>{
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const submitLogin = () =>{
+    if(!username){
+        toast.error("Tên đăng nhập không được để trống")
+        return
+    }
+    else if(!password)
+    {
+        toast.error("Mật khảu không được để trống")
+    }
+
+    }
     return(
         <>
 
@@ -21,14 +35,15 @@ const Login = () =>{
                         </div>
 
                             <span className="m-3 font-bold text-gray-400"> ĐĂNG NHẬP </span>
-                            <input className="w-[20vw] h-[4vh] bg-gray-200 p-4 rounded-b-sm my-[1vh] font-bold" placeholder="Tên đăng nhập"/>
-                            <input type={"password"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh] font-bold" placeholder="Mật khẩu"/>
+                            <input className="w-[20vw] h-[4vh] bg-gray-200 p-4 rounded-b-sm my-[1vh] " placeholder="Tên đăng nhập" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                            <input type={"password"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh] " placeholder="Mật khẩu" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-                            <button className="h-[7vh] w-[20vw] !bg-blue-600 text-white !text-xl my-4">ĐĂNG NHẬP</button>
+                            <button className="h-[7vh] w-[20vw] !bg-blue-600 text-white !text-xl my-4" onClick={submitLogin}>ĐĂNG NHẬP</button>
+                        <ToastContainer position="top-left"/>
                             <button className=" !bg-gray-100 !font-bold flex items-center justify-center h-[3.5vh]"><img src="/google.png" className="mx-[1vw]"/>Đăng nhập với Google</button>
-                        <div className="my-[3vh] flex ">
+                        <div className="my-[3vh] flex justify-between">
                             <button className="!bg-gray-100 !font-bold flex items-center justify-center h-[3.5vh] "><img src="/padlock.png" className="mr-[0.5vw]"/>Quên mật khẩu</button>
-                            <button className="!bg-gray-100 !font-bold flex items-center justify-center h-[3.5vh]"><img src="/add.png" className="mr-[0.5vw]"/> <Link to="/auth/register" className="!text-black !font-bold">Đăng Ký </Link></button>
+                            <Link to="/auth/register" className="!text-black !font-bold"> <button className="!bg-gray-100 !font-bold flex items-center justify-center h-[3.5vh]"><img src="/add.png" className="mr-[0.5vw]"/>Đăng Ký </button> </Link>
                         </div>
                     </div>
                 </div>

@@ -19,5 +19,5 @@ export const login_get = (req:any, res:any)=>{
     res.send('signup');
 }
 export const login_post = (req:any, res:any)=>{
-    res.send('signup');
+
 }

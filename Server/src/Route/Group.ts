@@ -6,10 +6,11 @@ import {
     getgroupbyid,
     updategroupid
 } from "../Controller/GroupController.js";
+import {createNew} from "../Validations/GroupValidation.js";
 const Router = express.Router();
 Router.get('/',getallgroups);
-Router.post('/',addagroup);
+Router.post('/',createNew,addagroup);
 Router.get('/:id',getgroupbyid);
 Router.delete('/:id',deletegroupwithid);
-Router.put('/:id',updategroupid);
+Router.put('/:id',createNew,updategroupid);
 export default Router
