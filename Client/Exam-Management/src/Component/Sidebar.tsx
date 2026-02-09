@@ -1,5 +1,6 @@
 import {Menu, type MenuProps} from "antd";
 import {FileFilled, FolderFilled, QuestionCircleFilled,  SwitcherFilled} from "@ant-design/icons";
+import {Link} from "react-router-dom";
 
 const Sidebar = () =>{
     type MenuItem = Required<MenuProps>['items'][number];
@@ -8,7 +9,7 @@ const Sidebar = () =>{
         {
             key: 'sub',
             label: 'Trang chủ',
-            icon: <SwitcherFilled />,
+            icon: <Link to="/dashboard"><SwitcherFilled /></Link>,
             style:{fontWeight:"bold"},
 
 
@@ -21,7 +22,7 @@ const Sidebar = () =>{
         {
             key: 'sub0',
             label: 'Tổ hợp môn',
-            icon: <SwitcherFilled />,
+            icon: <Link to="/group"><SwitcherFilled /></Link>,
             style:{fontWeight:"bold"},
 
 
@@ -29,14 +30,14 @@ const Sidebar = () =>{
         {
             key: 'sub1',
             label: 'Câu hỏi',
-            icon: <QuestionCircleFilled />,
+            icon: <Link to="/question"><QuestionCircleFilled /></Link>,
             style:{fontWeight:"bold"},
 
         },
         {
             key: 'sub2',
             label: 'Môn học',
-            icon: <FolderFilled />,
+            icon: <Link to="/subject"><FolderFilled /></Link>,
             style:{fontWeight:"bold"},
 
         },
@@ -70,14 +71,14 @@ const Sidebar = () =>{
     };
     return(
         <>
-            <div className="fixed top-10">
+            <div className="fixed top-10 ">
                 <Menu
                     onClick={onClick}
                     style={{ width: 256 }}
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     mode="inline"
-                    items={items}
+                    items={items} className="h-screen"
                 />
             </div>
         </>

@@ -4,7 +4,7 @@ import Login from "./Component/Login.tsx";
 import {Routes,Route} from "react-router-dom";
 import Register from "./Component/Register.tsx";
 import Dashboard from "./Component/Dashboard.tsx";
-import Question from "./Component/Question.tsx";
+import QuestionPage from "./Component/QuestionPage.tsx";
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
               <Route path="/auth/login" element={<Login/>}/>
               <Route path="/auth/register" element={<Register/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>
-              <Route path="/question" element={<Question/>}/>
+              <Route path="/question" element={<QuestionPage/>}/>
 
 
           </Routes>
