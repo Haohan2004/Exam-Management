@@ -4,11 +4,12 @@ import subjectRouter from "./src/Route/Subject.js"
 import authRouter from "./src/Route/Auth.js"
 import questionRouter from "./src/Route/Question.js"
 import chapterRouter from "./src/Route/Chapter.js"
+import cors from 'cors'
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+app.use(cors())
 app.get("/",(req,res)=>{
     res.json("chello world");
 })

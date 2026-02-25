@@ -13,7 +13,9 @@ const Login = () =>{
     {
         toast.error("Mật khảu không được để trống")
     }
-
+    else{
+        console.log({username:username, password:password})
+        }
     }
     return(
         <>

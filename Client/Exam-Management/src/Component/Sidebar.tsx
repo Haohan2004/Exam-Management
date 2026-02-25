@@ -71,10 +71,13 @@ const Sidebar = () =>{
     };
     return(
         <>
-            <div className="fixed top-10 ">
+            <div className="fixed top-0 w-[30vh]">
+                <div className="w-full h-[7vh] bg-blue-500 text-center p-1">
+                    <p className="text-[2vw] text-white font-[Roboto] font-bold">QUIZHUB</p>
+                </div>
                 <Menu
                     onClick={onClick}
-                    style={{ width: 256 }}
+
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     mode="inline"

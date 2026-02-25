@@ -1,6 +1,11 @@
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 const Register = () =>{
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [repassword, setRepassword] = useState("");
     return(
         <>
 
@@ -23,11 +28,11 @@ const Register = () =>{
 
                         <span className="m-3 font-bold text-gray-400"> ĐĂNG KÝ </span>
 
-                        <input className="w-[20vw] h-[4vh] bg-gray-200 p-4 rounded-b-sm my-[2vh] " placeholder="Tên đăng nhập"/>
-                        <input type={"password"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh]  " placeholder="Mật khẩu"/>
-                        <input type={"password"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh]  " placeholder="Nhập lại mật khẩu"/>
+                        <input className="w-[20vw] h-[4vh] bg-gray-200 p-4 rounded-b-sm my-[2vh] " placeholder="Tên đăng nhập" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                        <input type={"password"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh]  " placeholder="Mật khẩu" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <input type={"password"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh]  " placeholder="Nhập lại mật khẩu" value={repassword} onChange={(e) => setRepassword(e.target.value)}/>
 
-                        <input type={"email"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh] " placeholder="Email"/>
+                        <input type={"email"} className="w-[20vw] h-[4vh] bg-gray-200 p-4 my-[2vh] " placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
                         <button className="h-[7vh] w-[20vw] !bg-blue-600 text-white !text-xl my-4">ĐĂNG KÝ</button>
                         <div className="flex justify-between">
