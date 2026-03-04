@@ -40,7 +40,6 @@ const GroupPage = () => {
                         <Button type="primary" className="!p-4">+ THÊM TỔ HỌP MỚI</Button>
                     </div>
                     <Input placeholder="Nhập tên tổ hợp...." className="!m-5 !w-[15vw]"/>
-                    <Table columns={columns} dataSource={dataquestion} pagination={{pageSize:5}}/>
                 </div>
             </div>
         </>

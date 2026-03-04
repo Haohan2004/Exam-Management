@@ -1,8 +1,11 @@
 import {Button, Input, Select} from "antd";
 import {useEffect, useState} from "react";
 import {  toast } from 'react-toastify';
-
-const AddSubjectForm = ({setopenform,fetchsubject}) =>{
+interface AddSubjectFormProps {
+    setopenform: (value: boolean) => void;
+    fetchsubject: () => void;
+}
+const AddSubjectForm = ({setopenform,fetchsubject}:AddSubjectFormProps) =>{
     const [datagroup, setDatagroup] = useState<any[]>([]);
     const [subjectname, setSubjectname] = useState("");
     const [grade, setGrade] = useState("");

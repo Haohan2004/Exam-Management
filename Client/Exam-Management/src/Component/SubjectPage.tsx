@@ -4,7 +4,10 @@ import type { ColumnsType } from 'antd/es/table';
 import AddSubjectForm from "./Dialog/AddSubjectForm.tsx";
 import {ToastContainer} from "react-toastify";
 import {InfoCircleFilled} from "@ant-design/icons";
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditSubjectForm from "./Dialog/EditSubjectForm.tsx";
+import Swal from 'sweetalert2'
 const SubjectPage = () => {
     interface subjectDataType{
         subjectId: number;
@@ -46,14 +49,14 @@ const SubjectPage = () => {
 
         {
             title: 'Thao tác',
-            render: (text, record) => (
+            render: ( record) => (
                 <div >
                     <div className="flex justify-center">
-                <button className="w-[2vw] h-[4vh] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black"><InfoCircleFilled /></button>
-                        <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black"><InfoCircleFilled /></button>
-                        <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100  !rounded-[0px] hover:!border-black"><InfoCircleFilled /></button>
+                <button className="w-[2vw] h-[4vh] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" ><InfoCircleFilled /></button>
+                        <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" onClick={()=>{openeditform(record)}}><EditIcon/></button>
+                        <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100  !rounded-[0px] hover:!border-black" onClick={()=>{deletesubject(record.subjectid)}}><DeleteIcon/></button>
                     </div>
-
+.
                 </div>
             ),
             align: 'center',
@@ -63,6 +66,8 @@ const SubjectPage = () => {
     ];
     const [dataquestion, setDataquestion] = useState([]);
     const [isopenform, setOpenform] = useState(false);
+    const [isopeneditform, setOpeneditform] = useState(false);
+    const [subject, setSubject] = useState({});
     const form = useRef(null);
     const onChange = (value: string) => {
         console.log(`selected ${value}`);
@@ -76,10 +81,44 @@ const SubjectPage = () => {
         setOpenform(true);
         form.current.style.filter="blur(5px)"
     }
+    const openeditform = (subject:subjectDataType) =>{
+        setOpeneditform(true);
+        setSubject(subject);
+        form.current.style.filter="blur(5px)"
+
+    }
     const fetchdata = async () =>{
         const response = await fetch("http://localhost:8080/subject");
         const data = await response.json();
         setDataquestion(data);
+    }
+    const deletesubject = async (subjectid:number)=>{
+        Swal.fire({
+            title: "Bạn muốn xóa môn học này không?",
+            text: "Môn học sau khi xóa không thể hoàn tác!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText:"Đóng",
+            confirmButtonText: "Xóa"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Xóa môn học thành công",
+                    text: "Môn học đã được xóa",
+                    icon: "success"
+                });
+                const response = await fetch(`http://localhost:8080/subject/${subjectid}`,{
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" },
+
+                })
+                fetchdata()
+            }
+
+        });
+
     }
     useEffect(() => {
         const fetchdata = async () =>{
@@ -93,6 +132,10 @@ const SubjectPage = () => {
         if(isopenform==false)
             form.current.style.filter="none"
     }, [isopenform]);
+    useEffect(() => {
+        if(isopeneditform==false)
+            form.current.style.filter="none"
+    }, [isopeneditform]);
 
 
 
@@ -148,6 +191,7 @@ const SubjectPage = () => {
                 </div>
                 <div className=" absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent z-50">
                 {isopenform && <AddSubjectForm setopenform={setOpenform} fetchsubject={fetchdata}/>}
+                    {isopeneditform && <EditSubjectForm subject={subject} seteditform = {setOpeneditform}/>}
                 </div>
                 <ToastContainer position="bottom-left" />
 
