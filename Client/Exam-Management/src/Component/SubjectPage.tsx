@@ -8,6 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditSubjectForm from "./Dialog/EditSubjectForm.tsx";
 import Swal from 'sweetalert2'
+import ChapterPage from "./ChapterPage.tsx";
 const SubjectPage = () => {
     interface subjectDataType{
         subjectId: number;
@@ -52,7 +53,7 @@ const SubjectPage = () => {
             render: ( record) => (
                 <div >
                     <div className="flex justify-center">
-                <button className="w-[2vw] h-[4vh] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" ><InfoCircleFilled /></button>
+                <button className="w-[2vw] h-[4vh] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" onClick={()=>{openchapterform(record.subjectid)}}><InfoCircleFilled /></button>
                         <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" onClick={()=>{openeditform(record)}}><EditIcon/></button>
                         <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100  !rounded-[0px] hover:!border-black" onClick={()=>{deletesubject(record.subjectid)}}><DeleteIcon/></button>
                     </div>
@@ -67,7 +68,9 @@ const SubjectPage = () => {
     const [dataquestion, setDataquestion] = useState([]);
     const [isopenform, setOpenform] = useState(false);
     const [isopeneditform, setOpeneditform] = useState(false);
+    const [isopenchapter, setOpenchapter] = useState(false);
     const [subject, setSubject] = useState({});
+    const [subjectid, setSubjectid] = useState(0);
     const form = useRef(null);
     const onChange = (value: string) => {
         console.log(`selected ${value}`);
@@ -80,12 +83,19 @@ const SubjectPage = () => {
     const openform = () =>{
         setOpenform(true);
         form.current.style.filter="blur(5px)"
+        form.current.style.pointerEvents='none'
     }
     const openeditform = (subject:subjectDataType) =>{
         setOpeneditform(true);
         setSubject(subject);
         form.current.style.filter="blur(5px)"
-
+        form.current.style.pointerEvents='none'
+    }
+    const openchapterform = (subjectid:number) =>{
+        setSubjectid(subjectid);
+        setOpenchapter(true);
+        form.current.style.filter="blur(5px)"
+        form.current.style.pointerEvents='none'
     }
     const fetchdata = async () =>{
         const response = await fetch("http://localhost:8080/subject");
@@ -129,20 +139,30 @@ const SubjectPage = () => {
         fetchdata()
     }, []);
     useEffect(() => {
-        if(isopenform==false)
-            form.current.style.filter="none"
+        if(isopenform==false) {
+            form.current.style.filter = "none"
+            form.current.style.pointerEvents = 'auto'
+        }
     }, [isopenform]);
     useEffect(() => {
-        if(isopeneditform==false)
-            form.current.style.filter="none"
+        if(isopeneditform==false) {
+            form.current.style.filter = "none"
+            form.current.style.pointerEvents = 'auto'
+        }
     }, [isopeneditform]);
+    useEffect(() => {
+        if(isopenchapter==false) {
+            form.current.style.filter = "none"
+            form.current.style.pointerEvents = 'auto'
+        }
+    }, [isopenchapter]);
 
 
 
     return (
         <>
-            <div className="bg-[#F0F2F5] h-screen w-screen" >
-                <div className="mx-[20vw] my-[10vh] absolute  w-[75vw]  rounded-[2px] bg-white" ref={form}>
+            <div className="bg-[#F0F2F5] h-screen w-screen" ref={form} >
+                <div className="mx-[20vw] my-[10vh] absolute  w-[75vw]  rounded-[2px] bg-white" >
                     <div className="h-[6vh] flex justify-between bg bg-gray-200 p-4 ">
                         <label className="font-bold">Tất cả môn học</label>
                         <Button type="primary" className="!p-4" onClick={() =>{openform()}}>+ THÊM MÔN HỌC MỚI</Button>
@@ -189,14 +209,21 @@ const SubjectPage = () => {
                     />
                     <Table columns={columns} dataSource={dataquestion} pagination={{pageSize:5}}  />
                 </div>
-                <div className=" absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent z-50">
-                {isopenform && <AddSubjectForm setopenform={setOpenform} fetchsubject={fetchdata}/>}
-                    {isopeneditform && <EditSubjectForm subject={subject} seteditform = {setOpeneditform}/>}
-                </div>
-                <ToastContainer position="bottom-left" />
+
 
             </div>
-
+            <div className={`
+    fixed left-1/2 -translate-x-1/2 z-50 
+    transition-all duration-500 ease-out
+    ${(isopenform || isopeneditform||isopenchapter)
+                ? 'top-20 opacity-100 scale-100'
+                : 'top-0 opacity-0 scale-95 pointer-events-none'}
+`}>
+                {isopenchapter && <ChapterPage setchapterform={setOpenchapter} subject={subjectid}/>}
+                {isopenform && <AddSubjectForm setopenform={setOpenform} fetchsubject={fetchdata}/>}
+                {isopeneditform && <EditSubjectForm subject={subject} seteditform = {setOpeneditform}/>}
+            </div>
+            <ToastContainer position="bottom-left" />
         </>
     )
 }

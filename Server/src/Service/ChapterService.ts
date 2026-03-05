@@ -1,4 +1,11 @@
-import {addchapter, deletechapter, getallchapter, getchapter, updatechapter} from "../Model/Chapter.js";
+import {
+    addchapter,
+    deletechapter,
+    getallchapter,
+    getchapter,
+    getchapterBySubjectId,
+    updatechapter
+} from "../Model/Chapter.js";
 import type {Chapter} from "@prisma/client";
 
 export const getallchapterService = async () => {
@@ -16,4 +23,7 @@ export const updatechapterService = async (id:number,chapter: Chapter) => {
 }
 export const deletechapterService = async (id:number) => {
     return await deletechapter(id);
+}
+export const getchapterwithsubjectidService = async (id:number) => {
+    return await getchapterBySubjectId(id);
 }

@@ -12,11 +12,20 @@ export const getchapter = async (id:number) =>{
     return await prisma.chapter.findUnique({
         where: {
             chapid:id,
-            is_delete:true,
+            is_delete:false,
 
         },
     });
 }
+export const getchapterBySubjectId = async (id:number) =>{
+    return await prisma.chapter.findMany({
+        where: {
+            subjectid:id,
+            is_delete:false,
+        },
+    })
+}
+
 export const addchapter = async (chapter:Chapter) =>{
     return await prisma.chapter.create({
         data: {

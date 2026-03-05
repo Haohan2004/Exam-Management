@@ -1,6 +1,6 @@
-import type {Subject} from "@prisma/client";
+import type {Chapter, Subject} from "@prisma/client";
 import {createsubject, delsubject, getallsubjects, getsubjectwithid, upsubject} from "../Service/SubjectService.js";
-import subject from "../Route/Subject.js";
+import {getchapterwithsubjectidService} from "../Service/ChapterService.js";
 
 export const getsubjects = async (req:any,res:any)=>{
     try{
@@ -53,6 +53,16 @@ export const createsubjectController = async (req:any,res:any)=>{
         res.json(200)
     }
 
+    catch(err){
+        res.status(400).json(err);
+    }
+}
+export const getchapterwithsubjectidController = async (req:any,res:any)=>{
+    try{
+        const id=parseInt(req.params.id);
+        const chapter:Chapter[] = await getchapterwithsubjectidService(id);
+        res.json(chapter);
+    }
     catch(err){
         res.status(400).json(err);
     }

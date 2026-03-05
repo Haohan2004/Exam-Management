@@ -62,4 +62,3 @@ export const updatechapterController = async (req:any,res:any)=> {
         res.status(400).json(err);
     }
 }
-

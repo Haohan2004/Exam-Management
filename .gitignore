@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 Server/src/generated
-.env
+Server/.env
