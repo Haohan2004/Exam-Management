@@ -71,6 +71,7 @@ const SubjectPage = () => {
     const [isopenchapter, setOpenchapter] = useState(false);
     const [subject, setSubject] = useState({});
     const [subjectid, setSubjectid] = useState(0);
+    const [search, setSearch] = useState("");
     const form = useRef(null);
     const onChange = (value: string) => {
         console.log(`selected ${value}`);
@@ -130,6 +131,16 @@ const SubjectPage = () => {
         });
 
     }
+    // const searchSubject = () =>{
+    //     if(search=="")
+    //     {
+    //         setDatatable(dataquestion)
+    //     }
+    //     else {
+    //         const searchsubject = dataquestion.filter((item: subjectDataType) => item.subjectname.toLowerCase().trim().includes(search.toLowerCase().trim()))
+    //         setDatat(searchsubject)
+    //     }
+    // }
     useEffect(() => {
         const fetchdata = async () =>{
             const response = await fetch("http://localhost:8080/subject");
@@ -156,7 +167,10 @@ const SubjectPage = () => {
             form.current.style.pointerEvents = 'auto'
         }
     }, [isopenchapter]);
-
+    // useEffect(() => {
+    //         searchSubject()
+    //
+    // }, [search]);
 
 
     return (
@@ -167,7 +181,7 @@ const SubjectPage = () => {
                         <label className="font-bold">Tất cả môn học</label>
                         <Button type="primary" className="!p-4" onClick={() =>{openform()}}>+ THÊM MÔN HỌC MỚI</Button>
                     </div>
-                    <Input placeholder="Nhập tên môn học...." className="!m-5 !w-[15vw]"/>
+                    <Input placeholder="Nhập tên môn học...." className="!m-5 !w-[15vw]" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
                     <Select
                         showSearch={{ optionFilterProp: 'label', onSearch }}
                         placeholder="Chọn lớp...."
