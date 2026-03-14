@@ -39,6 +39,7 @@ export const updatesubjectwithid = async (req:any,res:any)=>{
         const groupid:number = parseInt(req.body.groupid);
         const subject:Subject = {subjectid:id,subjectname:req.body.subjectname,grade:grade,groupid:groupid,is_delete:false};
         await upsubject(id,subject)
+        res.status(200).json(subject);
     }
     catch (err){
         res.status(400).json(err);

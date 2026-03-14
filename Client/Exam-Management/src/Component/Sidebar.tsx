@@ -9,7 +9,7 @@ const Sidebar = () =>{
         {
             key: 'sub',
             label: 'Trang chủ',
-            icon: <Link to="/dashboard"><SwitcherFilled /></Link>,
+            icon: <Link to="/admin/dashboard"><SwitcherFilled /></Link>,
             style:{fontWeight:"bold"},
 
 
@@ -22,7 +22,7 @@ const Sidebar = () =>{
         {
             key: 'sub0',
             label: 'Tổ hợp môn',
-            icon: <Link to="/group"><SwitcherFilled /></Link>,
+            icon: <Link to="/admin/group"><SwitcherFilled /></Link>,
             style:{fontWeight:"bold"},
 
 
@@ -30,14 +30,14 @@ const Sidebar = () =>{
         {
             key: 'sub1',
             label: 'Câu hỏi',
-            icon: <Link to="/question"><QuestionCircleFilled /></Link>,
+            icon: <Link to="/admin/question"><QuestionCircleFilled /></Link>,
             style:{fontWeight:"bold"},
 
         },
         {
             key: 'sub2',
             label: 'Môn học',
-            icon: <Link to="/subject"><FolderFilled /></Link>,
+            icon: <Link to="/admin/subject"><FolderFilled /></Link>,
             style:{fontWeight:"bold"},
 
         },

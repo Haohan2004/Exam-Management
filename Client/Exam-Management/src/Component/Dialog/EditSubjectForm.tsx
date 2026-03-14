@@ -1,14 +1,25 @@
 import {Button, Input, Select} from "antd";
 import {useEffect, useState} from "react";
 import {  toast } from 'react-toastify';
+interface subjectdataType{
+    subjectid: number;
+    subjectname: string;
+    grade: number;
+    groupid: number;
+}
+interface EditSubjectFormProps {
+    subject:subjectdataType,
+    seteditform: (value: boolean) => void;
+    fetchsubject: () => void;
+}
 
-const EditSubjectForm = ({subject,seteditform}) =>{
+const EditSubjectForm = ({subject,seteditform,fetchsubject}:EditSubjectFormProps) =>{
 
     const [datagroup, setDatagroup] = useState<any[]>([]);
     const [subjectname, setSubjectname] = useState("");
     const [grade, setGrade] = useState("");
     const [groupid, setGroupid] = useState("");
-    const addsubject = async (e:React.MouseEvent) => {
+    const editsubject = async (e:React.MouseEvent) => {
         e.preventDefault();
         if (!subjectname) {
             toast.error("Tên môn học không được để trống")
@@ -20,23 +31,22 @@ const EditSubjectForm = ({subject,seteditform}) =>{
             toast.error("Tổ hợp môn không được để trống")
         } else {
 
-            const subject = {subjectname: subjectname, grade: parseInt(grade), groupid: parseInt(groupid)}
+            const subjectTemp = {subjectname: subjectname, grade: parseInt(grade), groupid: parseInt(groupid)}
             try {
-                const response = await fetch('http://localhost:8080/subject', {
-                    method: 'POST',
+                const response = await fetch(`http://localhost:8080/subject/${subject.subjectid}`, {
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(subject),
+                    body: JSON.stringify(subjectTemp),
 
                 })
                 if (!response.ok) {
-                    toast.error("Thêm môn học không thành công!")
+                    toast.error("Sửa môn học không thành công!")
                 } else {
-
-                    toast.success("Thêm môn học thành công")
-
-
+                    toast.success("Sửa môn học thành công")
+                    fetchsubject()
+                    seteditform(false)
                 }
             }
             catch (err) {
@@ -58,7 +68,8 @@ const EditSubjectForm = ({subject,seteditform}) =>{
     useEffect(() => {
         const loaddata = () =>{
             setSubjectname(subject.subjectname);
-            setGrade(subject.grade);
+            setGrade(subject.grade.toString());
+            setGroupid(subject.groupid.toString());
         }
         loaddata()
     }, []);
@@ -66,7 +77,7 @@ const EditSubjectForm = ({subject,seteditform}) =>{
     return(
         <>
 
-            <div className="  border-1 w-[25vw] h-[40vh] flex-col  rounded-[10px] overflow-hidden bg-white">
+            <div className="  border-3 w-[25vw] h-[40vh] flex-col  rounded-[10px] overflow-hidden bg-white">
                 <div className="w-full h-[12%]  p-[10px] bg-blue-500 ">
                     <p className="text-[2vh]    text-white font-['Roboto']">Sửa môn học</p>
                 </div>
@@ -81,6 +92,7 @@ const EditSubjectForm = ({subject,seteditform}) =>{
                         showSearch={{ optionFilterProp: "groupname", }}
                         placeholder="Chọn mã tổ hợp...."
                         options={datagroup}
+                        value={groupid}
                         fieldNames={{
                             label: 'groupname',
                             value: 'groupid'
@@ -91,7 +103,7 @@ const EditSubjectForm = ({subject,seteditform}) =>{
                     />
                 </div>
                 <div className="flex items-center justify-center">
-                    <Button color="primary" variant="solid" className="mx-4" onClick={(e:React.MouseEvent)=>{addsubject(e)}} >Thêm</Button>
+                    <Button color="primary" variant="solid" className="mx-4" onClick={(e:React.MouseEvent)=>{editsubject(e)}} >Thêm</Button>
                     <Button color="danger" variant="solid" onClick={()=>{seteditform(false)}} >Đóng</Button>
 
                 </div>

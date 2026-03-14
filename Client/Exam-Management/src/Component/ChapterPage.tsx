@@ -3,6 +3,8 @@ import Table from "antd/es/table";
 import {Button} from "antd";
 import {useEffect, useRef, useState } from "react";
 import {  toast } from 'react-toastify';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 interface ChapterPageProps {
     chapid:number,
     chapname:string
@@ -38,7 +40,10 @@ const ChapterPage = ({setchapterform,subject}:ChapterProps) =>{
             align: 'center',
             render: (text,record) =>(
                 <div>
-
+                    <div className="flex justify-center">
+                    <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" onClick={()=>{openeditform(record)}}><EditIcon/></button>
+                    <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100  !rounded-[0px] hover:!border-black" onClick={()=>{deletesubject(record.subjectid)}}><DeleteIcon/></button>
+                    </div>
                 </div>
             ),
         }
@@ -102,7 +107,7 @@ const ChapterPage = ({setchapterform,subject}:ChapterProps) =>{
 
         return (
         <>
-            <div className="w-[50vw] min-h-[55vh] max-h-[75vh] bg-white rounded-[10px] p-5">
+            <div className="w-[50vw] min-h-[55vh] max-h-[85vh] bg-white rounded-[10px] p-5">
                 <div className="flex justify-between border-b-3 mb-10 border-[#F2F2F2] p-2">
                 <p className="text-[2.5vh]  font-bold  text-black font-['Roboto']">Danh sách chương</p>
                 </div>

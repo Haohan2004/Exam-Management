@@ -55,7 +55,7 @@ const QuestionPage = () => {
         <>
 
             <div className="bg-[#F0F2F5] h-screen w-screen">
-                <div className="mx-[20vw] my-[5vh] w-[75vw] absolute  rounded-[2px] bg-white">
+                <div className="mx-[20vw] my-[10vh] absolute  w-[75vw]  rounded-[2px] bg-white">
                     <div className="h-[6vh] flex justify-between bg bg-gray-200 p-4 ">
                         <label className="font-bold">Tất cả câu hỏi</label>
                         <Button type="primary" className="!p-4 ">+ THÊM CÂU HỎI MỚI</Button>

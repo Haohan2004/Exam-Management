@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 import ChapterPage from "./ChapterPage.tsx";
 const SubjectPage = () => {
     interface subjectDataType{
-        subjectId: number;
+        subjectid: number;
         subjectname: string;
         grade: number
         groupid: number
@@ -235,7 +235,7 @@ const SubjectPage = () => {
 `}>
                 {isopenchapter && <ChapterPage setchapterform={setOpenchapter} subject={subjectid}/>}
                 {isopenform && <AddSubjectForm setopenform={setOpenform} fetchsubject={fetchdata}/>}
-                {isopeneditform && <EditSubjectForm subject={subject} seteditform = {setOpeneditform}/>}
+                {isopeneditform && <EditSubjectForm subject={subject} seteditform = {setOpeneditform} fetchsubject={fetchdata}/>}
             </div>
             <ToastContainer position="bottom-left" />
         </>
