@@ -103,7 +103,7 @@ const EditSubjectForm = ({subject,seteditform,fetchsubject}:EditSubjectFormProps
                     />
                 </div>
                 <div className="flex items-center justify-center">
-                    <Button color="primary" variant="solid" className="mx-4" onClick={(e:React.MouseEvent)=>{editsubject(e)}} >Thêm</Button>
+                    <Button color="primary" variant="solid" className="mx-4" onClick={(e:React.MouseEvent)=>{editsubject(e)}} >Lưu</Button>
                     <Button color="danger" variant="solid" onClick={()=>{seteditform(false)}} >Đóng</Button>
 
                 </div>

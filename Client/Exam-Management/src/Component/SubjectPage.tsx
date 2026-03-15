@@ -3,19 +3,27 @@ import {useEffect, useRef, useState} from "react";
 import type { ColumnsType } from 'antd/es/table';
 import AddSubjectForm from "./Dialog/AddSubjectForm.tsx";
 import {ToastContainer} from "react-toastify";
-import {InfoCircleFilled} from "@ant-design/icons";
+import InfoIcon from '@mui/icons-material/Info';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditSubjectForm from "./Dialog/EditSubjectForm.tsx";
 import Swal from 'sweetalert2'
 import ChapterPage from "./ChapterPage.tsx";
+
+interface subjectDataType{
+    subjectid: number;
+    subjectname: string;
+    grade: number
+    groupid: number
+    groupname: string;
+}
+interface groupDataType {
+    groupid: number;
+    groupname: string;
+}
+
 const SubjectPage = () => {
-    interface subjectDataType{
-        subjectid: number;
-        subjectname: string;
-        grade: number
-        groupid: number
-    }
+
 
 
     const columns:ColumnsType<subjectDataType> = [
@@ -40,9 +48,9 @@ const SubjectPage = () => {
 
         },
         {
-            title: 'Mã Tổ hợp',
-            dataIndex: 'groupid',
-            key: 'groupid',
+            title: 'Tên Tổ hợp',
+            dataIndex: ['group','groupname'],
+            key: 'group.groupname',
             align: 'center',
 
         },
@@ -50,10 +58,10 @@ const SubjectPage = () => {
 
         {
             title: 'Thao tác',
-            render: ( record) => (
+            render: ( record:subjectDataType) => (
                 <div >
-                    <div className="flex justify-center">
-                <button className="w-[2vw] h-[4vh] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" onClick={()=>{openchapterform(record.subjectid)}}><InfoCircleFilled /></button>
+                    <div className="flex justify-center ">
+                <button className="w-[2vw] h-[4vh] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" onClick={()=>{openchapterform(record.subjectid)}}><InfoIcon/></button>
                         <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100 !rounded-[0px] hover:!border-black" onClick={()=>{openeditform(record)}}><EditIcon/></button>
                         <button className="w-[2vw] flex justify-center mx-2 !bg-gray-100  !rounded-[0px] hover:!border-black" onClick={()=>{deletesubject(record.subjectid)}}><DeleteIcon/></button>
                     </div>
@@ -65,14 +73,16 @@ const SubjectPage = () => {
 
         },
     ];
-    const [dataquestion, setDataquestion] = useState([]);
+    const [dataquestion, setDataquestion] = useState<subjectDataType[]>([]);
+    const [datatable,setDatatable] = useState<subjectDataType[]>([]);
+    const [datagroup,setDatagroup] = useState<groupDataType[]>([]);
     const [isopenform, setOpenform] = useState(false);
     const [isopeneditform, setOpeneditform] = useState(false);
     const [isopenchapter, setOpenchapter] = useState(false);
     const [subject, setSubject] = useState({});
     const [subjectid, setSubjectid] = useState(0);
     const [search, setSearch] = useState("");
-    const form = useRef(null);
+    const form = useRef<HTMLDivElement>(null);
     const onChange = (value: string) => {
         console.log(`selected ${value}`);
     };
@@ -83,20 +93,20 @@ const SubjectPage = () => {
 
     const openform = () =>{
         setOpenform(true);
-        form.current.style.filter="blur(5px)"
-        form.current.style.pointerEvents='none'
+        form.current!.style.filter="blur(5px)"
+        form.current!.style.pointerEvents='none'
     }
     const openeditform = (subject:subjectDataType) =>{
         setOpeneditform(true);
         setSubject(subject);
-        form.current.style.filter="blur(5px)"
-        form.current.style.pointerEvents='none'
+        form.current!.style.filter = "blur(5px)"
+        form.current!.style.pointerEvents = 'none'
     }
     const openchapterform = (subjectid:number) =>{
         setSubjectid(subjectid);
         setOpenchapter(true);
-        form.current.style.filter="blur(5px)"
-        form.current.style.pointerEvents='none'
+        form.current!.style.filter="blur(5px)"
+        form.current!.style.pointerEvents='none'
     }
     const fetchdata = async () =>{
         const response = await fetch("http://localhost:8080/subject");
@@ -131,46 +141,55 @@ const SubjectPage = () => {
         });
 
     }
-    // const searchSubject = () =>{
-    //     if(search=="")
-    //     {
-    //         setDatatable(dataquestion)
-    //     }
-    //     else {
-    //         const searchsubject = dataquestion.filter((item: subjectDataType) => item.subjectname.toLowerCase().trim().includes(search.toLowerCase().trim()))
-    //         setDatat(searchsubject)
-    //     }
-    // }
+    const searchSubject = () =>{
+        if(search=="")
+        {
+            setDatatable(dataquestion)
+        }
+        else {
+            const searchsubject = dataquestion.filter((item: subjectDataType) => item.subjectname.toLowerCase().includes(search.toLowerCase()))
+            setDatatable(searchsubject)
+        }
+    }
     useEffect(() => {
         const fetchdata = async () =>{
             const response = await fetch("http://localhost:8080/subject");
             const data = await response.json();
             setDataquestion(data);
+            setDatatable(data);
         }
         fetchdata()
     }, []);
     useEffect(() => {
+        const fetchgroup = async () =>{
+            const response = await fetch("http://localhost:8080/group");
+            const data = await response.json();
+            setDatagroup(data)
+        }
+        fetchgroup()
+    }, []);
+    useEffect(() => {
         if(isopenform==false) {
-            form.current.style.filter = "none"
-            form.current.style.pointerEvents = 'auto'
+            form.current!.style.filter = "none"
+            form.current!.style.pointerEvents = 'auto'
         }
     }, [isopenform]);
     useEffect(() => {
         if(isopeneditform==false) {
-            form.current.style.filter = "none"
-            form.current.style.pointerEvents = 'auto'
+            form.current!.style.filter = "none"
+            form.current!.style.pointerEvents = 'auto'
         }
     }, [isopeneditform]);
     useEffect(() => {
         if(isopenchapter==false) {
-            form.current.style.filter = "none"
-            form.current.style.pointerEvents = 'auto'
+            form.current!.style.filter = "none"
+            form.current!.style.pointerEvents = 'auto'
         }
     }, [isopenchapter]);
-    // useEffect(() => {
-    //         searchSubject()
-    //
-    // }, [search]);
+    useEffect(() => {
+            searchSubject()
+
+    }, [search]);
 
 
     return (
@@ -186,42 +205,23 @@ const SubjectPage = () => {
                         showSearch={{ optionFilterProp: 'label', onSearch }}
                         placeholder="Chọn lớp...."
                         onChange={onChange}
-                        options={[
-                            {
-                                value: 'jack',
-                                label: 'Jack',
-                            },
-                            {
-                                value: 'lucy',
-                                label: 'Lucy',
-                            },
-                            {
-                                value: 'tom',
-                                label: 'Tom',
-                            },
-                        ]} className="!m-5 !w-[15vw]"
+                        className="!m-5 !w-[15vw]"
                     />
 
                     <Select
                         showSearch={{ optionFilterProp: 'label', onSearch }}
-                        placeholder="Chọn mã tổ hợp...."
+                        placeholder="Chọn tên tổ hợp...."
                         onChange={onChange}
-                        options={[
+                        options={datagroup}
+                        fieldNames={
                             {
-                                value: 'jack',
-                                label: 'Jack',
-                            },
-                            {
-                                value: 'lucy',
-                                label: 'Lucy',
-                            },
-                            {
-                                value: 'tom',
-                                label: 'Tom',
-                            },
-                        ]} className="!m-5 !w-[15vw]"
+                                label:'groupname',
+                                value:'groupid',
+                            }
+                        }
+                         className="!m-5 !w-[15vw]"
                     />
-                    <Table columns={columns} dataSource={dataquestion} pagination={{pageSize:5}}  />
+                    <Table columns={columns} dataSource={datatable} pagination={{pageSize:5}}  />
                 </div>
 
 

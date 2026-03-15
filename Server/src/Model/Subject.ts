@@ -5,6 +5,13 @@ export const getallsubject = async () =>{
         where: {
             is_delete: false,
         },
+       include:{
+            group:{
+                select:{
+                    groupname:true
+                }
+            }
+       }
     });
 }
 export const getsubject = async (id:number) =>{
