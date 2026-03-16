@@ -2,10 +2,25 @@ import {createGroup, delgroup, getgroup, getgroupwithid} from "../Service/GroupS
 import type {Group} from "@prisma/client"
 import {prisma} from "../lib/prisma.js";
 import {updategroup} from "../Model/Group.js";
+import {client} from '../db.js'
+
 export const getallgroups = async (req:any,res:any) => {
     try{
-        const groups:Group[] = await getgroup();
-        res.json(groups);
+        const cache_key = 'group'
+        const cache_data = await client.get(cache_key)
+        if(cache_data)
+        {
+           return res.status(200).json(JSON.parse(cache_data));
+        }
+        else {
+            const groups: Group[] = await getgroup();
+            await client.set(cache_key, JSON.stringify(groups), {
+                EX: 10
+            });
+
+
+            res.status(200).json(groups);
+        }
     }
     catch(err){
         res.status(400).json(err);
